@@ -45,7 +45,7 @@
 或者有什么想work as corps 的项目，可以发出来，合力完成。
 
 
-给个git and github 的电子书链接，学起来：[github入门与实践](https://maifile.cn/est/d661fcfbed19c2/pdf)
+给个git and github 的电子书链接，学起来：github入门与实践 自己上[Zlib](singlelogin.re)搜吧。
 
 
 ### 后面的大家一起补充吧！
