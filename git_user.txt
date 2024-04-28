@@ -1,0 +1,134 @@
+创建版本库：
+mkdir repository
+cd    repository
+pwd
+
+把目录变成可管理的仓库：
+git init
+
+添加文件：
+git add filename1 filename2 filename3 ...
+
+提交所有文件：
+git commit -m "message"
+
+掌握仓库状态：
+git status
+
+查看difference：
+git diff filename
+
+查看历史版本：
+git log    附加参数：--pretty=online      按q退出
+
+版本回退：
+git reset --hard HEAD^  HEAD指向当前版本
+
+git reset --hard f25d(示例)
+
+查看内容：
+cat filename
+
+历史命令：
+git reflog
+
+工作区：working directory
+版本库：repository   隐藏目录.git
+
+git add 把要提交的所有修改放到stage
+git commit 一次性提交修改到分支master
+
+
+查看工作区和版本库里最新版本的区别：
+git diff HEAD -- filename
+
+
+丢弃stage内的修改:
+git restore filename   同时覆盖工作目录中对文件的修改
+git checkout -- filename
+git reset HEAD filename   既可以回退版本也可以清空暂存区的修改
+file自修改后还没有添加到stage,撤回修改就是回到版本库内的版本
+file已经添加到暂存区，又做了修改，撤回修改就是回到参加到暂存区之后的状态
+总之就是回到最近一次git commit or git add 之前的状态
+
+
+删除文件:
+rm filename
+1.再从版本库中删除：
+git rm filename
+git commit -m "remove filename"
+2.恢复文件到版本库中最新版本：
+git checkout -- filename
+
+
+创建新的分支：
+git checkout -b feature-A
+or:
+git branch feature-A
+git checkout feature-A
+
+切换分支：
+git checkout - 切换到上一个分支
+git checkout branch name
+
+合并分支：
+git checkout master  切换到主干分支
+git merge --no-ff feature-A   把分支feature-A合并到master
+--no-ff可以在历史记录中记录本次合并
+
+
+vim结束编辑
+esc->:wq->Enter
+
+以图表形式输出提交日志：
+git log --graph
+
+合并冲突：
+在编辑器中修改
+
+修改提交信息：
+git commit -amend进入vim编辑器
+
+
+压缩历史：
+git rebase -i  HEAD~2
+然后进入vim编辑器，按下i开始编辑，修改要合并的历史的pick为fixup即可
+把多个修改包含到一个提交中
+
+
+合并git add,git commit
+git commit -am "description"
+
+
+推送至远程仓库：
+1.先在github上创建一个repository
+2.查看SSH
+3.git remote add origin git@github.com:Devil-Galois/git-tutorial.git   将origin设置为远程仓库标识符
+4.推送至master分支：
+git push -u origin master
+当前分支就会被推送至repository中的master分支
+-u 在推送的同时把repository中的master分支设置为本地仓库当前分支的upstream(建立映射)
+
+
+推送至master以外的分支：
+git checkout -b feature-D
+git push -u origin feature-D
+
+
+获取远程仓库：
+git clone git@github.com:SSH
+默认处于master分支下，同时系统自动把origin设置为远程仓库标识符
+
+获取其他分支：
+1.切换至repository目录下
+2.git branch -a可以查看分支
+3.git checkout -b feature-D origin/feature-D
+把远程仓库中的feature-D克隆到本地新建分支feature-D中
+
+
+获取最新的远程仓库分支
+git pull origin feature-D
+
+重定义remote的origin：
+git remote set-url origin ****
+
