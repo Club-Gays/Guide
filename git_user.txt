@@ -71,6 +71,7 @@ git checkout feature-A
 git checkout - 切换到上一个分支
 git checkout branch name
 
+
 合并分支：
 git checkout master  切换到主干分支
 git merge --no-ff feature-A   把分支feature-A合并到master
@@ -132,3 +133,5 @@ git pull origin feature-D
 重定义remote的origin：
 git remote set-url origin ****
 
+文件夹操作：
+git add folder/
